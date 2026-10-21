@@ -144,6 +144,24 @@ mcd-breakfast-alarm/
 └── docs/automation.md 定时自动化配置（晚间确认 + 早晨下单）
 ```
 
+## 🧭 项目入口
+
+| 文件 | 用途 |
+|---|---|
+| [`README.md`](README.md) | 介绍页（理念 + 麦言麦语 + 流程） |
+| [`SKILL.md`](SKILL.md) | Skill 主流程 |
+| [`scripts/search.py`](scripts/search.py) | 按名字模糊找套餐（带价格区间） |
+| [`scripts/prefs.py`](scripts/prefs.py) | 店 / 时间 / 套餐 / 跳过某天 |
+| [`scripts/fire.py`](scripts/fire.py) | 到点建单 + 付款提醒 + 麦言麦语 |
+| [`scripts/blessing.py`](scripts/blessing.py) | 麦言麦语（300 句） |
+| [`docs/automation.md`](docs/automation.md) | 定时自动化（晚间确认 + 早晨下单） |
+
+## 💛 欢迎与支持
+
+![欢迎来坐坐，明天也要好好吃早餐](docs/images/welcome.png)
+
+如果这个搭子帮你省下了早上的十分钟，欢迎点个 ⭐ Star 支持；也欢迎把问题、建议留在 Issue 区。
+
 ## 说明
 
 - 本仓库是「麦当劳程序员节创意开发大赛」的**第二个独立参赛项目**；第一个是 [窦月·麦门健康执行器](https://github.com/Xianmuyingyue/douyue-mcd-coach)。
