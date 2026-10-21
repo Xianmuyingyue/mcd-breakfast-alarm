@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.workbuddy/
+.DS_Store
+.env
+.mcd_mcp_token
+*_token.txt
+prefs.json
