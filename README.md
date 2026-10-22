@@ -13,7 +13,7 @@
 
 ## 🎬 在线体验（不用装任何东西）
 
-### **[▶ 点这里直接试 →](https://mcd-breakfast-buddy.app.workbuddy.host/?sharecode=QYRZPORCHR)**
+### **[▶ 点这里直接试 →](https://mcd-breakfast-buddy.app.workbuddy.host/breakfast.html?sharecode=QYRZPORCHR)**
 
 30 秒跑完一整天：说你早上想吃什么 → 设成闹钟 → 晚上 20:00 被问一句 → 次日 07:20 看到建好的待支付单。
 
@@ -182,4 +182,5 @@ mcd-breakfast-alarm/
 
 - 本仓库是「麦当劳程序员节创意开发大赛」的**第二个独立参赛项目**；第一个是 [窦月·麦门健康执行器](https://github.com/Xianmuyingyue/douyue-mcd-coach)。
 - 一个管"吃什么更健康"，一个管"到点把早餐备好"。
+- 本项目同时参加 **WorkBuddy「1024 造物挑战」**，在线体验：[breakfast.html](https://mcd-breakfast-buddy.app.workbuddy.host/breakfast.html?sharecode=QYRZPORCHR)。
 - 本项目为参赛作品，非麦当劳官方产品；输出仅供参考。
