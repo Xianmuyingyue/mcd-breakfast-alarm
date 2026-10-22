@@ -1,0 +1,774 @@
+{
+ "source": "麦克唐纳官方 MCP query-meals",
+ "storeCode": "1450104",
+ "fetchedAt": "2026-10-22 07:56 (北京时间)",
+ "note": "disc=1 表示该价格需随单购早餐卡；实际成交价以官方 MCP 实时核价为准。",
+ "count": 85,
+ "items": [
+  {
+   "c": "9900003457",
+   "n": "原味板烧鸡腿麦满分套餐",
+   "p": "13.8",
+   "o": "23",
+   "d": 1,
+   "t": "板烧 鸡腿 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003457_320.gif"
+  },
+  {
+   "c": "9900011872",
+   "n": "芝芝火腿扒堡组合",
+   "p": "9.9",
+   "o": "9.9",
+   "d": 0,
+   "t": "芝芝 火腿 组合 堡",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900011872_320.png"
+  },
+  {
+   "c": "9900011873",
+   "n": "芝芝火腿扒堡套餐",
+   "p": "11.4",
+   "o": "19",
+   "d": 1,
+   "t": "芝芝 火腿 套餐 堡",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900011873_320.png"
+  },
+  {
+   "c": "521315",
+   "n": "芝芝火腿扒堡",
+   "p": "13",
+   "o": "13",
+   "d": 0,
+   "t": "芝芝 火腿 堡",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260824/product/MS_521315_320.png"
+  },
+  {
+   "c": "9900013221",
+   "n": "一早现磨 超值二件套",
+   "p": "14.9",
+   "o": "29",
+   "d": 0,
+   "t": "现磨 咖啡 二件套",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20261008/product/MS_9900013221_320.gif"
+  },
+  {
+   "c": "9900003458",
+   "n": "猪柳蛋麦满分套餐",
+   "p": "15.6",
+   "o": "26",
+   "d": 1,
+   "t": "猪柳 蛋 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003458_320.png"
+  },
+  {
+   "c": "9900003459",
+   "n": "双层原味板烧鸡腿麦满分套餐",
+   "p": "16.2",
+   "o": "27",
+   "d": 1,
+   "t": "板烧 鸡腿 双层 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003459_320.gif"
+  },
+  {
+   "c": "9900003454",
+   "n": "猪柳麦满分套餐",
+   "p": "13.2",
+   "o": "22",
+   "d": 1,
+   "t": "猪柳 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003454_320.gif"
+  },
+  {
+   "c": "9900003453",
+   "n": "吉士蛋麦满分套餐",
+   "p": "10.2",
+   "o": "17",
+   "d": 1,
+   "t": "吉士 蛋 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003453_320.gif"
+  },
+  {
+   "c": "9900003451",
+   "n": "大脆鸡扒麦满分套餐",
+   "p": "10.8",
+   "o": "18",
+   "d": 1,
+   "t": "鸡扒 脆 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003451_320.png"
+  },
+  {
+   "c": "9900003449",
+   "n": "火腿扒麦满分套餐",
+   "p": "10.2",
+   "o": "17",
+   "d": 1,
+   "t": "火腿 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003449_320.gif"
+  },
+  {
+   "c": "9900013411",
+   "n": "精选麦满分套餐",
+   "p": "15.6",
+   "o": "26",
+   "d": 1,
+   "t": "精选 套餐 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900013411_320.gif"
+  },
+  {
+   "c": "9900003493",
+   "n": "原味板烧鸡腿麦满分组合",
+   "p": "10.8",
+   "o": "18",
+   "d": 1,
+   "t": "板烧 鸡腿 组合 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003493_320.png"
+  },
+  {
+   "c": "9900003504",
+   "n": "双层原味板烧鸡腿麦满分组合",
+   "p": "13.2",
+   "o": "22",
+   "d": 1,
+   "t": "板烧 鸡腿 双层 组合 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003504_320.gif"
+  },
+  {
+   "c": "9900003491",
+   "n": "猪柳蛋麦满分组合",
+   "p": "12.6",
+   "o": "21",
+   "d": 1,
+   "t": "猪柳 蛋 组合 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003491_320.gif"
+  },
+  {
+   "c": "9900003423",
+   "n": "猪柳麦满分组合",
+   "p": "10.2",
+   "o": "17",
+   "d": 1,
+   "t": "猪柳 组合 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003423_320.gif"
+  },
+  {
+   "c": "9900008094",
+   "n": "吉士蛋麦满分组合",
+   "p": "7.2",
+   "o": "12",
+   "d": 1,
+   "t": "吉士 蛋 组合 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900008094_320.png"
+  },
+  {
+   "c": "9900003455",
+   "n": "大脆鸡扒麦满分组合",
+   "p": "7.8",
+   "o": "13",
+   "d": 1,
+   "t": "鸡扒 脆 组合 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003455_320.png"
+  },
+  {
+   "c": "9900003456",
+   "n": "火腿扒麦满分组合",
+   "p": "7.2",
+   "o": "12",
+   "d": 1,
+   "t": "火腿 组合 麦满分",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003456_320.png"
+  },
+  {
+   "c": "6800",
+   "n": "原味板烧鸡腿麦满分",
+   "p": "15",
+   "o": "15",
+   "d": 0,
+   "t": "板烧 鸡腿 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_6800_320.png"
+  },
+  {
+   "c": "4989",
+   "n": "双层原味板烧鸡腿麦满分",
+   "p": "19",
+   "o": "19",
+   "d": 0,
+   "t": "板烧 鸡腿 双层 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_4989_320.png"
+  },
+  {
+   "c": "5022",
+   "n": "猪柳蛋麦满分",
+   "p": "18",
+   "o": "18",
+   "d": 0,
+   "t": "猪柳 蛋 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250709/product/MS_5022_320.png"
+  },
+  {
+   "c": "5024",
+   "n": "猪柳麦满分",
+   "p": "14",
+   "o": "14",
+   "d": 0,
+   "t": "猪柳 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5024_320.png"
+  },
+  {
+   "c": "520830",
+   "n": "双层猪柳蛋麦满分",
+   "p": "21",
+   "o": "21",
+   "d": 0,
+   "t": "猪柳 蛋 双层 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_520830_320_1745825365408.png"
+  },
+  {
+   "c": "5888",
+   "n": "吉士蛋麦满分",
+   "p": "10",
+   "o": "10",
+   "d": 0,
+   "t": "吉士 蛋 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5888_320.png"
+  },
+  {
+   "c": "5889",
+   "n": "大脆鸡扒麦满分",
+   "p": "11",
+   "o": "11",
+   "d": 0,
+   "t": "鸡扒 脆 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5889_320.png"
+  },
+  {
+   "c": "1254",
+   "n": "火腿扒麦满分",
+   "p": "10",
+   "o": "10",
+   "d": 0,
+   "t": "火腿 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_1254_320.png"
+  },
+  {
+   "c": "9900014835",
+   "n": "北非蛋风味猪柳蛋麦满分套餐",
+   "p": "18",
+   "o": "30",
+   "d": 1,
+   "t": "北非蛋 猪柳 蛋 套餐 麦满分 新品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900014835_320.png"
+  },
+  {
+   "c": "9900014833",
+   "n": "北非蛋风味脆鸡排麦满分套餐",
+   "p": "17.1",
+   "o": "28.5",
+   "d": 1,
+   "t": "北非蛋 鸡排 套餐 麦满分 新品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900014833_320.png"
+  },
+  {
+   "c": "9900014829",
+   "n": "北非蛋风味麦满分套餐",
+   "p": "15.6",
+   "o": "26",
+   "d": 1,
+   "t": "北非蛋 套餐 麦满分 新品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900014829_320.png"
+  },
+  {
+   "c": "9900014830",
+   "n": "北非蛋风味猪柳蛋麦满分组合",
+   "p": "15",
+   "o": "25",
+   "d": 1,
+   "t": "北非蛋 猪柳 蛋 组合 麦满分 新品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900014830_320.png"
+  },
+  {
+   "c": "9900014826",
+   "n": "北非蛋风味脆鸡排麦满分组合",
+   "p": "14.1",
+   "o": "23.5",
+   "d": 1,
+   "t": "北非蛋 鸡排 组合 麦满分 新品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900014826_320.png"
+  },
+  {
+   "c": "9900014820",
+   "n": "北非蛋风味麦满分组合",
+   "p": "12.6",
+   "o": "21",
+   "d": 1,
+   "t": "北非蛋 组合 麦满分 新品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900014820_320.png"
+  },
+  {
+   "c": "521734",
+   "n": "北非蛋风味麦满分",
+   "p": "18",
+   "o": "18",
+   "d": 0,
+   "t": "北非蛋 麦满分 单品 新品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521734_320.png"
+  },
+  {
+   "c": "521735",
+   "n": "北非蛋风味猪柳蛋麦满分",
+   "p": "22",
+   "o": "22",
+   "d": 0,
+   "t": "北非蛋 猪柳 蛋 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521735_320.png"
+  },
+  {
+   "c": "521736",
+   "n": "北非蛋风味脆鸡排麦满分",
+   "p": "20.5",
+   "o": "20.5",
+   "d": 0,
+   "t": "北非蛋 鸡排 麦满分 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521736_320.png"
+  },
+  {
+   "c": "9900003466",
+   "n": "原味板烧鸡腿炒双蛋堡套餐",
+   "p": "15.6",
+   "o": "26",
+   "d": 1,
+   "t": "板烧 鸡腿 炒双蛋 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003466_320.gif"
+  },
+  {
+   "c": "9900003465",
+   "n": "猪柳炒双蛋堡套餐",
+   "p": "15.6",
+   "o": "26",
+   "d": 1,
+   "t": "猪柳 炒双蛋 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003465_320.gif"
+  },
+  {
+   "c": "9900003424",
+   "n": "原味板烧鸡腿炒双蛋堡组合",
+   "p": "12.6",
+   "o": "21",
+   "d": 1,
+   "t": "板烧 鸡腿 炒双蛋 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003424_320.png"
+  },
+  {
+   "c": "9900003425",
+   "n": "猪柳炒双蛋堡组合",
+   "p": "12.6",
+   "o": "21",
+   "d": 1,
+   "t": "猪柳 炒双蛋 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900003425_320.gif"
+  },
+  {
+   "c": "514700",
+   "n": "原味板烧鸡腿炒双蛋堡",
+   "p": "18",
+   "o": "18",
+   "d": 0,
+   "t": "板烧 鸡腿 炒双蛋 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_514700_320.png"
+  },
+  {
+   "c": "502773",
+   "n": "猪柳炒双蛋堡",
+   "p": "18",
+   "o": "18",
+   "d": 0,
+   "t": "猪柳 炒双蛋 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_502773_320.png"
+  },
+  {
+   "c": "9900003468",
+   "n": "火腿扒早安营养卷套餐",
+   "p": "14.1",
+   "o": "23.5",
+   "d": 1,
+   "t": "火腿 营养卷 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003468_320.png"
+  },
+  {
+   "c": "9900003469",
+   "n": "图林根香肠早安营养卷套餐",
+   "p": "14.4",
+   "o": "24",
+   "d": 1,
+   "t": "香肠 图林根 营养卷 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003469_320.png"
+  },
+  {
+   "c": "9900003428",
+   "n": "火腿扒早安营养卷组合",
+   "p": "11.1",
+   "o": "18.5",
+   "d": 1,
+   "t": "火腿 营养卷 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003428_320.png"
+  },
+  {
+   "c": "9900003429",
+   "n": "图林根香肠早安营养卷组合",
+   "p": "11.4",
+   "o": "19",
+   "d": 1,
+   "t": "香肠 图林根 营养卷 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900003429_320.png"
+  },
+  {
+   "c": "513112",
+   "n": "火腿扒早安营养卷",
+   "p": "15.5",
+   "o": "15.5",
+   "d": 0,
+   "t": "火腿 营养卷 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_513112_320.png"
+  },
+  {
+   "c": "513113",
+   "n": "图林根香肠早安营养卷",
+   "p": "16",
+   "o": "16",
+   "d": 0,
+   "t": "香肠 图林根 营养卷 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_513113_320.png"
+  },
+  {
+   "c": "9900016178",
+   "n": "巧克力味厚松饼猪柳蛋堡套餐",
+   "p": "17.94",
+   "o": "29.9",
+   "d": 1,
+   "t": "松饼 巧克力 猪柳 蛋 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016178_320.png"
+  },
+  {
+   "c": "9900016171",
+   "n": "枫糖风味厚松饼猪柳蛋堡套餐",
+   "p": "17.94",
+   "o": "29.9",
+   "d": 1,
+   "t": "松饼 枫糖 猪柳 蛋 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016171_320.png"
+  },
+  {
+   "c": "9900016132",
+   "n": "巧克力味厚松饼猪柳堡套餐",
+   "p": "15.54",
+   "o": "25.9",
+   "d": 1,
+   "t": "松饼 巧克力 猪柳 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016132_320.png"
+  },
+  {
+   "c": "9900016176",
+   "n": "枫糖风味厚松饼猪柳堡套餐",
+   "p": "15.54",
+   "o": "25.9",
+   "d": 1,
+   "t": "松饼 枫糖 猪柳 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016176_320.png"
+  },
+  {
+   "c": "9900016145",
+   "n": "巧克力味厚松饼猪柳蛋堡组合",
+   "p": "15",
+   "o": "25",
+   "d": 1,
+   "t": "松饼 巧克力 猪柳 蛋 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016145_320.png"
+  },
+  {
+   "c": "9900016143",
+   "n": "枫糖风味厚松饼猪柳蛋堡组合",
+   "p": "15",
+   "o": "25",
+   "d": 1,
+   "t": "松饼 枫糖 猪柳 蛋 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016143_320.png"
+  },
+  {
+   "c": "9900016146",
+   "n": "巧克力味厚松饼猪柳堡组合",
+   "p": "12.6",
+   "o": "21",
+   "d": 1,
+   "t": "松饼 巧克力 猪柳 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016146_320.png"
+  },
+  {
+   "c": "9900016144",
+   "n": "枫糖风味厚松饼猪柳堡组合",
+   "p": "12.6",
+   "o": "21",
+   "d": 1,
+   "t": "松饼 枫糖 猪柳 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016144_320.png"
+  },
+  {
+   "c": "9900016524",
+   "n": "厚松饼猪柳蛋堡三件套",
+   "p": "17.94",
+   "o": "29.9",
+   "d": 1,
+   "t": "松饼 猪柳 蛋 三件套",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016524_320.gif"
+  },
+  {
+   "c": "521981",
+   "n": "巧克力味厚松饼猪柳蛋堡",
+   "p": "22",
+   "o": "22",
+   "d": 0,
+   "t": "松饼 巧克力 猪柳 蛋 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521981_320.png"
+  },
+  {
+   "c": "521982",
+   "n": "巧克力味厚松饼猪柳堡",
+   "p": "18",
+   "o": "18",
+   "d": 0,
+   "t": "松饼 巧克力 猪柳 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521982_320.png"
+  },
+  {
+   "c": "521989",
+   "n": "枫糖风味厚松饼猪柳蛋堡",
+   "p": "22",
+   "o": "22",
+   "d": 0,
+   "t": "松饼 枫糖 猪柳 蛋 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521989_320.png"
+  },
+  {
+   "c": "521990",
+   "n": "枫糖风味厚松饼猪柳堡",
+   "p": "18",
+   "o": "18",
+   "d": 0,
+   "t": "松饼 枫糖 猪柳 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521990_320.png"
+  },
+  {
+   "c": "9900005470",
+   "n": "粥王系列精选套餐",
+   "p": "15",
+   "o": "15",
+   "d": 0,
+   "t": "粥 粥王 套餐",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900005470_320.gif"
+  },
+  {
+   "c": "9900005437",
+   "n": "粥王系列组合",
+   "p": "12",
+   "o": "12",
+   "d": 0,
+   "t": "粥 粥王 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900005437_320.gif"
+  },
+  {
+   "c": "513606",
+   "n": "粥王系列精选",
+   "p": "7.5",
+   "o": "7.5",
+   "d": 0,
+   "t": "粥 粥王 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G513606_320.gif"
+  },
+  {
+   "c": "9900012729",
+   "n": "脆香油条组合",
+   "p": "6.6",
+   "o": "11",
+   "d": 1,
+   "t": "油条 脆 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_9900012729_320.png"
+  },
+  {
+   "c": "9900003728",
+   "n": "脆香油条豆浆组合",
+   "p": "17",
+   "o": "17",
+   "d": 0,
+   "t": "油条 豆浆 组合",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900003728_320.png"
+  },
+  {
+   "c": "2631",
+   "n": "脆香油条",
+   "p": "8.5",
+   "o": "8.5",
+   "d": 0,
+   "t": "油条 脆 单品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_2631_320.png"
+  },
+  {
+   "c": "4825",
+   "n": "脆薯饼",
+   "p": "8.5",
+   "o": "8.5",
+   "d": 0,
+   "t": "薯饼 小食",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250506/product/MS_4825_320_1745825068180.png"
+  },
+  {
+   "c": "4437",
+   "n": "玉米杯",
+   "p": "13",
+   "o": "13",
+   "d": 0,
+   "t": "玉米 小食",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G4437_320.png"
+  },
+  {
+   "c": "505235",
+   "n": "德式图林根香肠",
+   "p": "9.5",
+   "o": "9.5",
+   "d": 0,
+   "t": "香肠 图林根 小食",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_505235_320.png"
+  },
+  {
+   "c": "9900008752",
+   "n": "派",
+   "p": "8.5",
+   "o": "8.5",
+   "d": 0,
+   "t": "派 甜品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G9900008752_320.gif"
+  },
+  {
+   "c": "1088",
+   "n": "优品豆浆",
+   "p": "9.5",
+   "o": "9.5",
+   "d": 0,
+   "t": "豆浆 热饮",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_1088_320.png"
+  },
+  {
+   "c": "520689",
+   "n": "鲜萃咖啡",
+   "p": "9.5",
+   "o": "9.5",
+   "d": 0,
+   "t": "咖啡 鲜萃 热饮",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250324/product/MS_G520688_320.gif"
+  },
+  {
+   "c": "507368",
+   "n": "麦咖啡™热美式中杯",
+   "p": "11.9",
+   "o": "19",
+   "d": 0,
+   "t": "咖啡 美式 麦咖啡 热饮",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250521/product/MS_507368_320.png"
+  },
+  {
+   "c": "507328",
+   "n": "麦咖啡™热奶铁中杯",
+   "p": "13.9",
+   "o": "21",
+   "d": 0,
+   "t": "咖啡 奶铁 拿铁 麦咖啡 热饮",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250521/product/MS_507328_320.png"
+  },
+  {
+   "c": "507411",
+   "n": "麦咖啡™美式",
+   "p": "11.9",
+   "o": "19",
+   "d": 0,
+   "t": "咖啡 美式 麦咖啡",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_G507374_320.gif"
+  },
+  {
+   "c": "507409",
+   "n": "麦咖啡™奶铁",
+   "p": "13.9",
+   "o": "21",
+   "d": 0,
+   "t": "咖啡 奶铁 拿铁 麦咖啡",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_G507372_320.gif"
+  },
+  {
+   "c": "510479",
+   "n": "燕麦奶铁",
+   "p": "9.9",
+   "o": "23",
+   "d": 1,
+   "t": "咖啡 燕麦 奶铁 拿铁",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20260422/product/MS_G510481_320.png"
+  },
+  {
+   "c": "507387",
+   "n": "卡布奇诺",
+   "p": "21",
+   "o": "21",
+   "d": 0,
+   "t": "咖啡 卡布奇诺",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250324/product/MS_G507388_320.png"
+  },
+  {
+   "c": "507389",
+   "n": "浓缩咖啡",
+   "p": "15",
+   "o": "15",
+   "d": 0,
+   "t": "咖啡 浓缩",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250324/product/MS_507389_320.png"
+  },
+  {
+   "c": "3505",
+   "n": "锡兰红茶",
+   "p": "11.5",
+   "o": "11.5",
+   "d": 0,
+   "t": "红茶 茶 热饮",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_3505_320.png"
+  },
+  {
+   "c": "2430",
+   "n": "【美汁源】“黄金橙橙”",
+   "p": "13",
+   "o": "13",
+   "d": 0,
+   "t": "橙汁 果汁 饮品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20240904/product/MS_2430_320.png"
+  },
+  {
+   "c": "515280",
+   "n": "阳光柠檬红茶",
+   "p": "9.5",
+   "o": "9.5",
+   "d": 0,
+   "t": "柠檬 红茶 饮品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_G515280_320.png"
+  },
+  {
+   "c": "3755",
+   "n": "纯牛奶(盒装)",
+   "p": "10.5",
+   "o": "10.5",
+   "d": 0,
+   "t": "牛奶 饮品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20240731/product/MS_3755_320.png"
+  },
+  {
+   "c": "6362",
+   "n": "100% 苹果汁(盒装)",
+   "p": "11.5",
+   "o": "11.5",
+   "d": 0,
+   "t": "苹果汁 果汁 饮品",
+   "i": "https://menu-img.mcd.cn/pcm/prod/menu/20250430/product/MS_6362_320_1745552987716.png"
+  }
+ ]
+}

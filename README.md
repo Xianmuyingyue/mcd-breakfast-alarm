@@ -9,6 +9,16 @@
   <img alt="pay" src="https://img.shields.io/badge/%E4%B8%8D%E4%BB%98-%E8%87%AA%E5%8A%A8%E8%BF%87%E6%9C%9F-DA291C">
 </p>
 
+## 🎬 在线体验（不用装任何东西）
+
+### **[▶ 点这里直接试 →](https://mcd-breakfast-buddy.app.workbuddy.host/?sharecode=QYRZPORCHR)**
+
+30 秒跑完一整天：说你早上想吃什么 → 设成闹钟 → 晚上 20:00 被问一句 → 次日 07:20 看到建好的待支付单。
+
+页面里的 **85 个早餐 SKU 与价格**，是 2026-10-22 早上通过麦当劳官方 MCP 在门店 `1450104` 实时拉取的快照，**不是编的**；「麦言麦语」300 句也与脚本内置数据完全一致（按日期 md5 定位，同一天同一句）。
+
+> 浏览器里无法安全持有你的 MCP 令牌，所以体验页的「建单 / 付款」是本地模拟，只为让你摸到真实手感；真实的定时建单发生在 WorkBuddy 里。
+
 ## 核心理念
 
 - **根据你的喜好**：你只说想吃什么（如"板烧""豆浆""吉士"），它模糊匹配门店餐品、按你选的价格区间帮你定好；
@@ -141,6 +151,9 @@ mcd-breakfast-alarm/
 │   ├── fire.py        到点建单 + 付款提醒 + 麦言麦语
 │   ├── blessing.py    麦言麦语（每日一句）
 │   └── mcp_client.py  官方 MCP 客户端
+├── demo/              在线体验页（单文件网页版 + 真实菜单快照）
+│   ├── index.html     可直接打开的体验页
+│   └── menu-snapshot.json  MCP 实时菜单快照（85 个 SKU）
 └── docs/automation.md 定时自动化配置（晚间确认 + 早晨下单）
 ```
 
@@ -155,6 +168,7 @@ mcd-breakfast-alarm/
 | [`scripts/fire.py`](scripts/fire.py) | 到点建单 + 付款提醒 + 麦言麦语 |
 | [`scripts/blessing.py`](scripts/blessing.py) | 麦言麦语（300 句） |
 | [`docs/automation.md`](docs/automation.md) | 定时自动化（晚间确认 + 早晨下单） |
+| [`demo/index.html`](demo/index.html) | 在线体验页源码（单文件，无依赖） |
 
 ## 💛 欢迎与支持
 

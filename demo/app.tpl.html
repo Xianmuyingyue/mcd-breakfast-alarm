@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>麦当劳早餐下定搭子 · 体验版</title>
+<meta name="description" content="不替你做决定，但会暖心为你先订上；吃不吃，由你决定。一个会替你惦记早餐的小搭子：每晚确认、次日到点建好待支付早餐单并提醒付款，附一句麦言麦语。">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --red:#DA291C;--red-d:#A81A10;--yellow:#FFC72C;--yellow-l:#FFE08A;
+  --ink:#1F1714;--ink2:#5B4F49;--ink3:#94867F;--line:#F1E3D8;
+  --bg:#FFF8F1;--card:#fff;--green:#12B76A;--gray:#B8AAA2;
+  --r:16px;--sh:0 4px 18px rgba(120,60,30,.07);
+}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select{font-family:inherit;font-size:15px}
+.wrap{max-width:620px;margin:0 auto;padding:0 16px 96px}
+
+/* ── HERO ── */
+.hero{background:var(--red);color:#fff;position:relative;overflow:hidden;padding:26px 0 30px}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;border:2px solid rgba(255,199,44,.28)}
+.hero::before{width:300px;height:300px;right:-120px;top:-140px}
+.hero::after{width:190px;height:190px;right:-40px;top:-40px}
+.hero-in{max-width:620px;margin:0 auto;padding:0 16px;position:relative;z-index:2}
+.chip-top{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:4px 11px;font-size:11.5px;
+  font-weight:600;letter-spacing:.3px;margin-bottom:14px}
+.chip-top i{width:6px;height:6px;border-radius:50%;background:var(--yellow);display:block}
+h1{margin:0 0 10px;font-size:27px;line-height:1.28;font-weight:800;letter-spacing:-.4px}
+h1 em{font-style:normal;color:var(--yellow)}
+.sub{margin:0;font-size:14px;line-height:1.75;color:rgba(255,255,255,.9);max-width:30em}
+.sub b{color:#fff;font-weight:700}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.hero-tags span{font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:8px;
+  background:rgba(255,199,44,.18);color:var(--yellow-l);border:1px solid rgba(255,199,44,.24)}
+
+/* ── 通用 ── */
+.sec{margin-top:26px;scroll-margin-top:16px}
+.sec-h{display:flex;align-items:baseline;gap:9px;margin-bottom:12px}
+.sec-n{flex:0 0 auto;width:26px;height:26px;border-radius:9px;background:var(--red);color:#fff;
+  font-size:13px;font-weight:800;display:grid;place-items:center;transform:translateY(1px)}
+.sec-h h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.2px}
+.sec-h .hint{font-size:12px;color:var(--ink3);margin-left:auto;font-weight:500}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--sh)}
+.card+.card{margin-top:10px}
+
+/* ── 搜索 ── */
+.searchbar{display:flex;gap:8px;align-items:center;background:#fff;border:1.5px solid var(--line);
+  border-radius:12px;padding:0 12px;height:46px;transition:border-color .18s}
+.searchbar:focus-within{border-color:var(--red)}
+.searchbar svg{flex:0 0 auto;color:var(--ink3)}
+.searchbar input{border:0;outline:0;flex:1;background:none;font-size:15px;min-width:0}
+.searchbar input::placeholder{color:var(--ink3)}
+.quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.quick button{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);color:var(--ink2);transition:.15s}
+.quick button:hover{border-color:var(--yellow);background:#FFF9E6}
+.quick button.on{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ── 价格区间 ── */
+.pr{margin-top:14px}
+.pr-l{font-size:12.5px;font-weight:700;color:var(--ink2);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.pr-l span{font-weight:500;color:var(--ink3)}
+.pr-chips{display:flex;gap:7px;flex-wrap:wrap}
+.pr-chips button{flex:0 0 auto;font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:9px;
+  border:1px solid var(--line);background:#fff;color:var(--ink2);white-space:nowrap;transition:.15s}
+.pr-chips button.on{background:var(--yellow);border-color:var(--yellow);color:var(--ink);font-weight:700}
+
+/* ── 商品网格 ── */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:13px}
+@media(min-width:520px){.grid{grid-template-columns:repeat(3,1fr)}}
+.item{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:8px;
+  text-align:left;transition:.16s;display:flex;flex-direction:column}
+.item:hover{border-color:var(--yellow-l);transform:translateY(-1px)}
+.item.on{border-color:var(--red);background:#FFF7F5;box-shadow:0 0 0 3px rgba(218,41,28,.08)}
+.item .ph{width:100%;aspect-ratio:1;border-radius:9px;background:#FBF3EC;overflow:hidden;
+  display:grid;place-items:center;margin-bottom:7px}
+.item .ph img{width:100%;height:100%;object-fit:contain}
+.item .ph .fb{font-size:19px;font-weight:800;color:var(--red);opacity:.5}
+.item .nm{font-size:12.5px;font-weight:700;line-height:1.4;margin:0 0 5px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:35px}
+.item .pz{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;margin-top:auto}
+.item .pz b{color:var(--red);font-size:14.5px;font-weight:800}
+.item .pz b i{font-style:normal;font-size:11px;font-weight:700}
+.item .pz s{color:var(--ink3);font-size:11px;text-decoration-color:var(--gray)}
+.item .tag{position:absolute;top:6px;right:6px;font-size:9.5px;font-weight:700;padding:2px 5px;
+  border-radius:5px;background:var(--yellow);color:var(--ink)}
+.item .ck{position:absolute;bottom:7px;right:7px;width:17px;height:17px;border-radius:50%;
+  background:var(--red);color:#fff;font-size:11px;display:none;place-items:center;font-weight:800}
+.item.on .ck{display:grid}
+.empty{grid-column:1/-1;text-align:center;color:var(--ink3);font-size:13px;padding:26px 0}
+
+/* ── 已选 + 设定 ── */
+.picked{display:flex;gap:12px;align-items:center;margin-top:13px;padding:12px;border-radius:12px;
+  background:linear-gradient(135deg,#FFF6EC,#FFFBF3);border:1px dashed #F0D6BE}
+.picked .ph{width:54px;height:54px;border-radius:10px;background:#fff;flex:0 0 auto;
+  display:grid;place-items:center;overflow:hidden;border:1px solid var(--line)}
+.picked .nm{font-size:13.5px;font-weight:800;line-height:1.4}
+.picked .meta{font-size:11.5px;color:var(--ink2);margin-top:3px}
+.picked .meta b{color:var(--red);font-weight:800}
+.qty{margin-left:auto;display:flex;align-items:center;gap:0;border:1px solid var(--line);
+  border-radius:9px;background:#fff;overflow:hidden;flex:0 0 auto}
+.qty button{width:30px;height:30px;font-size:16px;font-weight:700;color:var(--ink2);display:grid;place-items:center}
+.qty button:active{background:#FFF3E8}
+.qty span{min-width:22px;text-align:center;font-size:13px;font-weight:700}
+
+.row{display:flex;gap:10px;margin-top:11px}
+.row>*{flex:1;min-width:0}
+.field label{display:block;font-size:11.5px;font-weight:700;color:var(--ink2);margin-bottom:5px}
+.field input,.field select{width:100%;height:42px;border:1.5px solid var(--line);border-radius:11px;
+  padding:0 11px;background:#fff;outline:0;color:var(--ink);transition:border-color .18s}
+.field input:focus,.field select:focus{border-color:var(--red)}
+.timechips{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.timechips button{font-size:12.5px;font-weight:700;padding:6px 11px;border-radius:9px;
+  border:1px solid var(--line);background:#fff;color:var(--ink2);font-variant-numeric:tabular-nums}
+.timechips button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:48px;
+  border-radius:13px;font-size:15px;font-weight:800;transition:.16s;letter-spacing:.2px}
+.btn.pri{background:var(--red);color:#fff;box-shadow:0 6px 18px rgba(218,41,28,.22)}
+.btn.pri:active{transform:scale(.985);background:var(--red-d)}
+.btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn.ghost:active{background:#FFF6EE}
+.btn.yl{background:var(--yellow);color:var(--ink);box-shadow:0 6px 16px rgba(255,199,44,.3)}
+.btn:disabled{opacity:.45;box-shadow:none;cursor:not-allowed}
+.btn.sm{height:42px;font-size:14px;border-radius:11px}
+.btn2{display:flex;gap:9px;margin-top:10px}
+.btn2>*{flex:1}
+
+/* ── 手机卡 ── */
+.phone{max-width:388px;margin:0 auto;background:#111;border-radius:30px;padding:9px;
+  box-shadow:0 14px 40px rgba(60,30,15,.18)}
+.phone.in{box-shadow:0 14px 40px rgba(60,30,15,.18),0 0 0 2.5px rgba(218,41,28,.16)}
+.phone-in{background:#fff;border-radius:23px;overflow:hidden}
+.pbar{background:#FAF7F4;padding:7px 15px 5px;display:flex;justify-content:space-between;
+  font-size:10.5px;font-weight:700;color:var(--ink2);font-variant-numeric:tabular-nums}
+.notif{padding:13px 14px;border-bottom:1px solid #F5EEE8;display:flex;gap:10px;align-items:flex-start}
+.notif:last-child{border-bottom:0}
+.nicon{width:30px;height:30px;border-radius:8px;background:var(--red);color:var(--yellow);
+  display:grid;place-items:center;font-size:15px;font-weight:800;flex:0 0 auto}
+.nbody{flex:1;min-width:0}
+.nhead{display:flex;align-items:baseline;gap:6px;margin-bottom:2px}
+.nhead b{font-size:12px;font-weight:800}
+.nhead span{font-size:10px;color:var(--ink3);margin-left:auto;font-variant-numeric:tabular-nums}
+.ntitle{font-size:12.5px;font-weight:700;line-height:1.45;margin-bottom:3px}
+.ntext{font-size:11.5px;color:var(--ink2);line-height:1.6}
+.ntext b{color:var(--red)}
+
+.ord{margin:0 14px 13px;border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.ord-h{background:#FFFBF3;padding:11px 13px;border-bottom:1px solid var(--line)}
+.ord-h .st{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#B26A00}
+.ord-h .st i{width:6px;height:6px;border-radius:50%;background:var(--yellow);display:block;
+  animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.ord-h .amt{font-size:23px;font-weight:800;color:var(--red);line-height:1.2;margin-top:3px;
+  font-variant-numeric:tabular-nums}
+.ord-h .amt i{font-size:13px;font-weight:700;font-style:normal}
+.ord-h .amt s{font-size:11.5px;color:var(--ink3);font-weight:500;margin-left:5px}
+.ord-b{padding:11px 13px}
+.li{display:flex;gap:8px;font-size:12px;color:var(--ink2);line-height:1.85}
+.li b{margin-left:auto;color:var(--ink);font-weight:700;text-align:right;flex:0 0 auto}
+.li.total{border-top:1px dashed var(--line);margin-top:7px;padding-top:7px;font-size:12.5px;color:var(--ink)}
+.li.total b{color:var(--red);font-size:14px;font-weight:800}
+.cd{display:flex;align-items:center;gap:6px;background:#FFF4F2;border:1px solid #FBD9D4;
+  border-radius:9px;padding:6px 9px;margin-top:10px;font-size:11.5px;font-weight:700;color:var(--red-d)}
+.cd b{font-variant-numeric:tabular-nums;font-size:13px}
+.cd.warn{background:#FEF3C7;border-color:#FDE68A;color:#92400E}
+
+.bls{margin:0 14px 13px;padding:11px 13px;border-radius:12px;
+  background:linear-gradient(135deg,#FFFBEA,#FFF6E0);border:1px solid #FBE7AF}
+.bls .k{font-size:10px;font-weight:800;color:#A8730B;letter-spacing:1px;margin-bottom:4px}
+.bls .q{font-size:12.5px;font-weight:700;color:#5B4200;line-height:1.65}
+
+.done{margin:0 14px 14px;text-align:center;padding:16px 12px;border-radius:12px;background:#F6FBF8;
+  border:1px solid #CBEFDD}
+.done .t{font-size:13px;font-weight:800;color:#0B7A45;margin-bottom:3px}
+.done .s{font-size:11.5px;color:#3F7A5E;line-height:1.6}
+.gone{margin:0 14px 14px;text-align:center;padding:14px 12px;border-radius:12px;background:#FAF7F4;
+  border:1px dashed #E3D8CF}
+.gone .t{font-size:12.5px;font-weight:800;color:var(--ink2);margin-bottom:3px}
+.gone .s{font-size:11.5px;color:var(--ink3);line-height:1.6}
+
+/* ── 日历 ── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 8px;text-align:center}
+.stat b{display:block;font-size:20px;font-weight:800;color:var(--red);line-height:1.2;
+  font-variant-numeric:tabular-nums}
+.stat span{font-size:11px;color:var(--ink3);font-weight:600}
+.cal{margin-top:13px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px}
+.cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.cal-h b{font-size:13.5px;font-weight:800}
+.cal-h span{font-size:11px;color:var(--ink3);font-weight:600}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.dow div{text-align:center;font-size:10.5px;color:var(--ink3);font-weight:700;padding-bottom:4px}
+.days button{aspect-ratio:1;border-radius:9px;font-size:11.5px;font-weight:600;color:var(--ink2);
+  display:grid;place-items:center;position:relative;background:#FCFAF8;border:1px solid transparent}
+.days button.blank{background:none}
+.days button.today{border-color:var(--ink);font-weight:800;color:var(--ink)}
+.days button[data-s="paid"]{background:var(--red);color:#fff;font-weight:800}
+.days button[data-s="expired"]{background:#FFF3D6;color:#8A5B00;font-weight:700}
+.days button[data-s="skip"]{background:#F1EDE9;color:var(--ink3)}
+.days button[data-s="paid"]::after,.days button[data-s="expired"]::after{content:"";position:absolute;
+  bottom:3px;width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.55}
+.legend{display:flex;gap:12px;margin-top:11px;font-size:10.5px;color:var(--ink3);flex-wrap:wrap}
+.legend i{width:8px;height:8px;border-radius:3px;display:inline-block;margin-right:4px;vertical-align:1px}
+
+/* ── 说明 ── */
+.note{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin-top:12px}
+.note h3{margin:0 0 8px;font-size:13.5px;font-weight:800;display:flex;align-items:center;gap:6px}
+.note p{margin:0 0 8px;font-size:12.5px;color:var(--ink2);line-height:1.8}
+.note p:last-child{margin-bottom:0}
+.note ul{margin:0;padding-left:17px;font-size:12.5px;color:var(--ink2);line-height:1.9}
+.note code{background:#FFF4E9;padding:1px 5px;border-radius:4px;font-size:11.5px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#8A4A12}
+pre{margin:9px 0 0;background:#211B18;color:#F5EDE6;padding:12px;border-radius:10px;overflow-x:auto;
+  font-size:11.5px;line-height:1.75;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+pre .c{color:#9A8C84}
+.warnbox{background:#FFF9E6;border:1px solid #FCE9A8;border-radius:12px;padding:12px 14px;margin-top:12px}
+.warnbox b{display:block;font-size:12.5px;font-weight:800;color:#8A5B00;margin-bottom:4px}
+.warnbox p{margin:0;font-size:12px;color:#7A5200;line-height:1.75}
+
+/* ── 拖底 CTA ── */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(to top,#FFF8F1 62%,rgba(255,248,241,0));pointer-events:none}
+.dock-in{max-width:620px;margin:0 auto;pointer-events:auto;display:flex;gap:9px}
+.dock .btn{height:50px;box-shadow:0 8px 24px rgba(218,41,28,.26)}
+.dock .btn.wide{flex:1}
+
+.toast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:99;
+  background:rgba(31,23,20,.94);color:#fff;font-size:13px;font-weight:600;padding:10px 16px;
+  border-radius:11px;opacity:0;transition:.26s;pointer-events:none;max-width:86vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.foot{text-align:center;padding:26px 16px 10px;color:var(--ink3);font-size:11.5px;line-height:1.8}
+.foot b{color:var(--ink2)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="chip-top"><i></i>WorkBuddy「1024 造物挑战」参赛作品 · 体验版</div>
+    <h1>麦当劳早餐<br><em>下定</em>搭子</h1>
+    <p class="sub">不替你做决定，但会暖心为你先订上；<b>吃不吃，由你决定</b>。<br>
+      每晚问一句，次日到点把早餐单先建好、提醒你付款——你到店就有热的那份。</p>
+    <div class="hero-tags">
+      <span>真实菜单</span><span>模糊找餐</span><span>每日一句麦言麦语</span><span>不付不扣款</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ① 选早餐 -->
+  <section class="sec" id="s1">
+    <div class="sec-h"><div class="sec-n">1</div><h2>说你早上想吃什么</h2><div class="hint" id="hint1">只记得一个词也行</div></div>
+    <div class="card">
+      <div class="searchbar">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+        <input id="q" type="search" placeholder="输入「板烧」「吉士」「豆浆」「粥」…" autocomplete="off">
+      </div>
+      <div class="quick" id="quick"></div>
+      <div class="pr">
+        <div class="pr-l">价格区间 <span id="prTip">不限</span></div>
+        <div class="pr-chips" id="prChips"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="picked" id="picked"></div>
+    </div>
+  </section>
+
+  <!-- ② 设定 -->
+  <section class="sec" id="s2">
+    <div class="sec-h"><div class="sec-n">2</div><h2>设成你的早餐闹钟</h2><div class="hint">一次设置，之后不用管</div></div>
+    <div class="card">
+      <div class="row">
+        <div class="field">
+          <label>取餐门店</label>
+          <input id="store" type="text" value="1450104" placeholder="门店编码">
+        </div>
+        <div class="field">
+          <label>早餐时间</label>
+          <input id="tm" type="text" value="07:20" placeholder="07:20" inputmode="numeric">
+        </div>
+      </div>
+      <div class="timechips" id="tmChips"></div>
+      <div class="row" style="margin-top:13px">
+        <div class="field">
+          <label>哪天替你订</label>
+          <select id="days">
+            <option value="weekdays">工作日（周一至周五）</option>
+            <option value="everyday">每天</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <button class="btn pri" id="saveBtn">设好了，让它开始惦记 →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ 每晚确认 -->
+  <section class="sec" id="s3">
+    <div class="sec-h"><div class="sec-n">3</div><h2>每晚 20:00 · 先问你一句</h2><div class="hint">不回答 = 默认订</div></div>
+    <div class="phone" id="p3">
+      <div class="phone-in">
+        <div class="pbar"><span>20:00</span><span>●●● ⏻</span></div>
+        <div class="notif">
+          <div class="nicon">麦</div>
+          <div class="nbody">
+            <div class="nhead"><b>麦当劳早餐下定搭子</b><span>现在</span></div>
+            <div class="ntitle" id="c3title">明天 07:20 的早餐，照旧？</div>
+            <div class="ntext" id="c3text">默认：示例门店 · 原味板烧鸡腿麦满分套餐 ¥13.8。要改或取消吗？不回也没关系，明天我照样先订上。</div>
+          </div>
+        </div>
+        <div style="padding:0 14px 14px">
+          <div class="btn2" style="margin-top:0">
+            <button class="btn ghost sm" id="b3skip">明天不订</button>
+            <button class="btn yl sm" id="b3ok">照旧，先订上</button>
+          </div>
+          <button class="btn ghost sm" id="b3chg" style="margin-top:8px;height:38px;font-size:12.5px">换一个 / 改时间</button>
+        </div>
+        <div id="c3res"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 次日支付提醒 -->
+  <section class="sec" id="s4">
+    <div class="sec-h"><div class="sec-n">4</div><h2>次日 07:20 · 单已备好</h2><div class="hint">你只差付一下</div></div>
+    <div class="phone" id="p4">
+      <div class="phone-in">
+        <div class="pbar"><span>07:20</span><span>●●● ⏻</span></div>
+        <div class="notif">
+          <div class="nicon">麦</div>
+          <div class="nbody">
+            <div class="nhead"><b>麦当劳早餐下定搭子</b><span>07:20</span></div>
+            <div class="ntitle" id="c4title">你的早餐单建好了，待付款</div>
+            <div class="ntext" id="c4text">到店直接取餐。不付也没关系，15 分钟后自动过期，不扣一分钱。</div>
+          </div>
+        </div>
+        <div id="c4body"></div>
+      </div>
+    </div>
+    <div style="margin-top:10px;text-align:center">
+      <button class="btn ghost sm" id="b4fire" style="max-width:388px;margin:0 auto">⏰ 模拟次日 07:20 到点</button>
+    </div>
+  </section>
+
+  <!-- ⑤ 打卡 -->
+  <section class="sec" id="s5">
+    <div class="sec-h"><div class="sec-n">5</div><h2>这个月，你好好吃了几次</h2><div class="hint">决定权一直在你</div></div>
+    <div class="stats">
+      <div class="stat"><b id="st1">0</b><span>已订上</span></div>
+      <div class="stat"><b id="st2">0</b><span>吃到了</span></div>
+      <div class="stat"><b id="st3">0</b><span>没去，也没扣款</span></div>
+    </div>
+    <div class="cal">
+      <div class="cal-h"><b id="calTitle">—</b><span id="calSub">点格子看记录</span></div>
+      <div class="dow"><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div></div>
+      <div class="days" id="cal"></div>
+      <div class="legend">
+        <span><i style="background:var(--red)"></i>吃到</span>
+        <span><i style="background:#FFF3D6"></i>过期未付</span>
+        <span><i style="background:#F1EDE9"></i>主动跳过</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 说明 -->
+  <section class="sec" id="s6">
+    <div class="sec-h"><div class="sec-n">i</div><h2>它到底怎么跑起来的</h2></div>
+    <div class="note">
+      <h3>🍔 这不是假的菜单</h3>
+      <p>页面里的 70 多个早餐 SKU 与价格，是 <b>2026-10-22 07:56</b> 通过麦当劳官方 MCP 在门店 <code>1450104</code> 实时拉取的快照（<code>query-meals</code>）；「麦言麦语」的 300 句也与脚本内置数据完全一致，按日期 md5 定位，同一天看到的是同一句。</p>
+      <p>真实下单发生在 WorkBuddy 里：定时自动化触发 → 调用官方 MCP 核价建单 → 把付款提醒推给你。浏览器里无法安全地持有你的授权令牌，所以这个页面的「建单 / 付款」是本地模拟，只为让你摸到真实手感。</p>
+    </div>
+    <div class="note">
+      <h3>⚙️ 三步就能自己用（WorkBuddy 里）</h3>
+      <ul>
+        <li><b>① 安装</b> 把仓库里的 <code>mcd-breakfast-alarm</code> 目录放进 WorkBuddy 的 skills 目录，配置麦当劳 MCP（见仓库 <code>mcp-config.example.json</code>）；</li>
+        <li><b>② 设置</b> 对它说「早餐想吃板烧，20 块以内，7 点 20」，它模糊匹配后帮你定好；</li>
+        <li><b>③ 交给闹钟</b> 建两个自动化：20:00 确认、次日 07:20 下单。之后你什么都不用做。</li>
+      </ul>
+      <pre><span class="c"># 说一句话就能设定（模糊匹配 + 价格区间）</span>
+python scripts/search.py "板烧" --store-code 1450104 --min 10 --max 20
+python scripts/prefs.py  set --store-code 1450104 --time 07:20 \
+        --meal 9900003457:1 --days weekdays
+<span class="c"># 到点核价建单（先预演，不真下单）</span>
+python scripts/fire.py --dry-run</pre>
+      <button class="btn ghost sm" id="copyBtn" style="margin-top:10px">复制命令</button>
+    </div>
+    <div class="warnbox">
+      <b>诚实边界</b>
+      <p>麦当劳 MCP 没有「预约下单」接口。所以它做的是<b>到点现场建单 + 付款提醒</b>，不是提前锁单；待支付订单 <b>15 分钟未付自动过期</b>，钱不会扣。这是这个方案的安全垫，也是它敢「先替你订上」的底气。</p>
+    </div>
+  </section>
+
+  <div class="foot">
+    <b>麦当劳早餐下定搭子</b> · WorkBuddy「1024 造物挑战」<br>
+    菜单数据 © 麦当劳中国官方 MCP 实时快照 · 本项目为个人参赛作品，非麦当劳官方产品
+  </div>
+</div>
+
+<div class="dock">
+  <div class="dock-in">
+    <button class="btn pri wide" id="playBtn">▶ 一键跑完一天</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== 数据 ===== */
+const MENU = __MENU_JSON__;
+const BLESS = __BLESS_JSON__;
+const BIDX = __BIDX_JSON__;
+const BSTART = __BSTART_JSON__;
+
+/* ===== 麦言麦语：与 scripts/blessing.py 完全一致（md5 预计算） ===== */
+function blessingFor(d){
+  const off = Math.round((Date.parse(d+"T00:00:00") - Date.parse(BSTART+"T00:00:00"))/86400000);
+  if(off>=0 && (off*2+2)<=BIDX.length){
+    const al="0123456789abcdefghijklmnopqrstuvwxyz";
+    const s=BIDX.substr(off*2,2);
+    const i=al.indexOf(s[0])*36+al.indexOf(s[1]);
+    return BLESS[i];
+  }
+  let h=0; for(const c of d) h=(h*31+c.charCodeAt(0))%1000003;
+  return BLESS[h%BLESS.length];
+}
+
+/* ===== 状态 ===== */
+const KEY="mcd_breakfast_alarm_demo_v1";
+const DEF={meal:"9900003457",qty:1,time:"07:20",store:"1450104",days:"weekdays",evening:null,log:{}};
+let S=DEF;
+try{const raw=localStorage.getItem(KEY); if(raw)S=Object.assign({},DEF,JSON.parse(raw));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+
+let filter={q:"",lo:0,hi:999};
+const $=s=>document.querySelector(s);
+const el=(t,c,h)=>{const n=document.createElement(t); if(c)n.className=c; if(h!=null)n.innerHTML=h; return n;};
+const money=v=>{const n=Number(v); return Number.isInteger(n)?String(n):n.toFixed(2).replace(/0$/,'');};
+
+/* ===== 日期工具 ===== */
+function today(){const d=new Date();return d.toISOString?fmt(d):'';}
+function fmt(d){const p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());}
+function addDay(s,n){const d=new Date(s+"T00:00:00");d.setDate(d.getDate()+n);return fmt(d);}
+function tomorrow(){return addDay(fmt(new Date()),1);}
+
+/* ===== ① 商品 ===== */
+const QUICK=["板烧","吉士","猪柳","鸡扒","豆浆","粥","油条","咖啡","麦满分"];
+function renderQuick(){
+  const box=$("#quick"); box.innerHTML="";
+  QUICK.forEach(k=>{
+    const b=el("button",filter.q===k?"on":"",k);
+    b.onclick=()=>{filter.q=(filter.q===k?"":k); $("#q").value=filter.q; renderQuick(); renderGrid();};
+    box.appendChild(b);
+  });
+}
+const PRS=[{lo:0,hi:9.99,t:"¥10 以下"},{lo:10,hi:14.99,t:"¥10–15"},{lo:15,hi:19.99,t:"¥15–20"},
+           {lo:20,hi:29.99,t:"¥20–30"},{lo:30,hi:999,t:"¥30 以上"},{lo:0,hi:999,t:"不限"}];
+function renderPr(){
+  const box=$("#prChips"); box.innerHTML="";
+  PRS.forEach(p=>{
+    const on=(filter.lo===p.lo&&filter.hi===p.hi);
+    const b=el("button",on?"on":"",p.t);
+    b.onclick=()=>{filter.lo=p.lo;filter.hi=p.hi;
+      $("#prTip").textContent=(p.t==="不限"?"不限":p.t.replace("¥",""));renderPr();renderGrid();};
+    box.appendChild(b);
+  });
+}
+function renderGrid(){
+  const g=$("#grid"); g.innerHTML="";
+  const q=filter.q.trim();
+  let list=MENU.filter(m=>{
+    const hit=!q || m.n.includes(q) || (m.t||"").includes(q);
+    const p=Number(m.p);
+    return hit && p>=filter.lo && p<=filter.hi;
+  });
+  list.sort((a,b)=>Number(a.p)-Number(b.p));
+  $("#hint1").textContent=list.length+" 款可选";
+  if(!list.length){
+    g.appendChild(el("div","empty","这个价位没找到。换个词，或者放宽价格区间试试。"));
+    return;
+  }
+  list.forEach(m=>{
+    const b=el("button","item"+(S.meal===m.c?" on":""));
+    const tag=m.d?el("span","tag","早餐卡价"):null;
+    const ph=el("div","ph");
+    if(m.i){const im=el("img");im.src=m.i;im.alt=m.n;im.loading="lazy";
+      im.onerror=()=>{ph.innerHTML='<div class="fb">'+m.n.slice(0,1)+'</div>';};ph.appendChild(im);}
+    else ph.innerHTML='<div class="fb">'+m.n.slice(0,1)+'</div>';
+    b.appendChild(ph);
+    if(tag)b.appendChild(tag);
+    b.appendChild(el("div","nm",m.n));
+    const pz=el("div","pz",'<b><i>¥</i>'+money(m.p)+'</b>'+(m.o&&Number(m.o)>Number(m.p)?'<s>¥'+money(m.o)+'</s>':''));
+    b.appendChild(pz);
+    b.appendChild(el("div","ck","✓"));
+    b.onclick=()=>{S.meal=m.c;save();renderGrid();renderPicked();renderPhone();};
+    g.appendChild(b);
+  });
+}
+
+/* ===== 已选 ===== */
+function mealObj(){return MENU.find(m=>m.c===S.meal)||MENU[0];}
+function renderPicked(){
+  const m=mealObj(), box=$("#picked"); box.innerHTML="";
+  const ph=el("div","ph");
+  if(m.i){const im=el("img");im.src=m.i;im.alt=m.n;im.onerror=()=>{ph.innerHTML='<div class="fb">'+m.n.slice(0,1)+'</div>';};ph.appendChild(im);}
+  else ph.innerHTML='<div class="fb">'+m.n.slice(0,1)+'</div>';
+  box.appendChild(ph);
+  const info=el("div","");
+  info.appendChild(el("div","nm",m.n));
+  info.appendChild(el("div","meta",'共 <b>¥'+money(Number(m.p)*S.qty)+'</b> · '+S.qty+' 份'+(m.d?' · 含早餐卡价':'')+' · 门店 '+S.store));
+  box.appendChild(info);
+  const q=el("div","qty");
+  const minus=el("button","","−"); minus.onclick=()=>{S.qty=Math.max(1,S.qty-1);save();renderPicked();renderPhone();};
+  const plus=el("button","","+"); plus.onclick=()=>{S.qty=Math.min(9,S.qty+1);save();renderPicked();renderPhone();};
+  q.appendChild(minus); q.appendChild(el("span","",String(S.qty))); q.appendChild(plus);
+  box.appendChild(q);
+}
+
+/* ===== ② 时间 ===== */
+const TIMES=["06:40","07:00","07:20","07:40","08:00","08:30"];
+function renderTimes(){
+  const box=$("#tmChips"); box.innerHTML="";
+  TIMES.forEach(t=>{
+    const b=el("button",S.time===t?"on":"",t);
+    b.onclick=()=>{S.time=t;$("#tm").value=t;save();renderTimes();renderPhone();};
+    box.appendChild(b);
+  });
+}
+
+/* ===== ③④ 手机卡 ===== */
+function renderPhone(){
+  const m=mealObj(), amt=money(Number(m.p)*S.qty);
+  const skip=(S.evening==="skip");
+  // ③
+  $("#c3title").textContent = skip ? "明天先不订，收到" : "明天 "+S.time+" 的早餐，照旧？";
+  $("#c3text").innerHTML = skip
+    ? '已替你跳过明天的订单。想恢复就点下面的「照旧，先订上」。'
+    : '默认：门店 '+S.store+' · '+m.n+' ¥<b>'+amt+'</b>。要改或取消吗？不回也没关系，明天我照样先订上。';
+  const res=$("#c3res"); res.innerHTML="";
+  if(S.evening){
+    res.appendChild(el("div","gone",
+      '<div class="t">'+(skip?"明天不订 · 已跳过":"明天照旧 · 已排上")+'</div>'+
+      '<div class="s">'+(skip?"明天到点不会建单，也不会提醒你。":"明天 "+S.time+" 会自动建好待支付单，并推你一条付款提醒。")+'</div>'));
+  }
+  // ④
+  const body=$("#c4body"); body.innerHTML="";
+  if(!S.order){
+    $("#c4title").textContent = skip ? "今天没订，安静的早晨" : "等 07:20 到点建单";
+    $("#c4text").innerHTML = skip
+      ? '昨天你说了「明天不订」，所以我什么都没做。'
+      : '点下面的按钮，模拟一次真实的到点建单。';
+    return;
+  }
+  const o=S.order;
+  $("#c4title").textContent = o.status==="paid" ? "已付款，到店取餐" : o.status==="expired" ? "订单已过期（没付，没扣钱）" : "你的早餐单建好了，待付款";
+  $("#c4text").innerHTML = o.status==="paid" ? "取餐码 "+o.pick+" · 出示给店员就行。" :
+    o.status==="expired" ? "15 分钟内没付款，订单自动取消了。这就是「吃不吃由你」。":
+    "到店直接取餐。不付也没关系，15 分钟后自动过期，不扣一分钱。";
+
+  if(o.status==="pending"){
+    const H=el("div","ord-h");
+    H.appendChild(el("div","st",'<i></i>待支付 · 剩余 <span id="cdv">--:--</span>'));
+    H.appendChild(el("div","amt",'<i>¥</i>'+money(o.amt)));
+    body.appendChild(el("div","ord")).appendChild(H);
+    const list=document.querySelectorAll(".ord");
+    const ordEl=list[list.length-1];
+    const B=el("div","ord-b");
+    B.appendChild(el("div","li","门店<b>"+o.store+"</b>"));
+    B.appendChild(el("div","li","取餐时间<b>"+o.time+"</b>"));
+    B.appendChild(el("div","li",o.meal+" × "+o.qty+"<b>¥"+money(o.amt)+"</b>"));
+    if(o.save>0)B.appendChild(el("div","li","已省<b>¥"+money(o.save)+"</b>"));
+    B.appendChild(el("div","li","订单号<b style='font-size:11px'>"+o.id+"</b>"));
+    B.appendChild(el("div","li total",'待支付<b>¥'+money(o.amt)+'</b>'));
+    ordEl.appendChild(B);
+    const bl=el("div","bls",'<div class="k">麦言麦语</div><div class="q">'+o.bls+'</div>');
+    body.appendChild(bl);
+    const btns=el("div","btn2"); btns.style.padding="0 14px"; btns.style.marginBottom="14px";
+    const pay=el("button","btn pri sm","去付款");
+    pay.onclick=()=>{o.status="paid";o.pick="A"+Math.floor(100+Math.random()*900);
+      logDay(o.date,"paid");save();renderPhone();renderCal();toast("已记入打卡：今天你好好吃早饭了");};
+    const no=el("button","btn ghost sm","不吃了");
+    no.onclick=()=>{o.status="expired";logDay(o.date,"expired");save();renderPhone();renderCal();toast("订单已取消，没有扣款");};
+    btns.appendChild(no); btns.appendChild(pay);
+    body.appendChild(btns);
+    startCd(o);
+  } else if(o.status==="paid"){
+    body.appendChild(el("div","done",'<div class="t">✓ 取餐码 '+o.pick+'</div><div class="s">¥'+money(o.amt)+' 已付 · 到店出示即可 · '+o.meal+'</div>'));
+    body.appendChild(el("div","bls",'<div class="k">麦言麦语</div><div class="q">'+o.bls+'</div>'));
+  } else {
+    body.appendChild(el("div","gone",'<div class="t">15 分钟到，自动过期</div><div class="s">¥'+money(o.amt)+' 一分没扣 · 明天想吃了再点</div>'));
+    body.appendChild(el("div","bls",'<div class="k">麦言麦语</div><div class="q">'+o.bls+'</div>'));
+  }
+}
+
+let cdTimer=null;
+function startCd(o){
+  if(cdTimer)clearInterval(cdTimer);
+  const tick=()=>{
+    const left=Math.max(0,Math.floor((o.deadline-Date.now())/1000));
+    const v=document.getElementById("cdv");
+    if(v){v.textContent=String(Math.floor(left/60)).padStart(2,"0")+":"+String(left%60).padStart(2,"0");
+      if(left<=180)v.parentElement.classList.add("warn");}
+    if(left<=0){clearInterval(cdTimer); if(o.status==="pending"){o.status="expired";logDay(o.date,"expired");save();renderPhone();renderCal();}}
+  };
+  tick(); cdTimer=setInterval(tick,1000);
+}
+
+/* ===== 建单 ===== */
+function fire(){
+  if(S.evening==="skip"){toast("昨天说了不订，今天不建单");return;}
+  const m=mealObj();
+  const amt=Number(m.p)*S.qty;
+  const save0=(m.o?Number(m.o)*S.qty-amt:0);
+  S.order={
+    id:"MCD"+(new Date()).toISOString().slice(0,10).replace(/-/g,"")+String(Math.floor(1000+Math.random()*9000)),
+    meal:m.n,qty:S.qty,amt:amt,save:save0>0?save0:0,
+    store:S.store,time:S.time,status:"pending",
+    date:tomorrow(),bls:blessingFor(tomorrow()),
+    deadline:Date.now()+15*60*1000
+  };
+  save(); renderPhone();
+  document.getElementById("p4").scrollIntoView({behavior:"smooth",block:"center"});
+  document.getElementById("p4").classList.add("in");
+  setTimeout(()=>document.getElementById("p4").classList.remove("in"),1400);
+  toast("订单已建好，等你就差付一下");
+}
+
+/* ===== 打卡 ===== */
+function logDay(date,st){S.log[date]=st;save();}
+function renderCal(){
+  const now=new Date(), y=now.getFullYear(), mo=now.getMonth();
+  $("#calTitle").textContent=y+" 年 "+(mo+1)+" 月";
+  const first=new Date(y,mo,1), lead=(first.getDay()+6)%7;
+  const dim=new Date(y,mo+1,0).getDate();
+  const box=$("#cal"); box.innerHTML="";
+  for(let i=0;i<lead;i++)box.appendChild(el("button","blank"));
+  let p=0,e=0,s=0;
+  for(let d=1;d<=dim;d++){
+    const ds=y+"-"+String(mo+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+    const st=S.log[ds];
+    const btn=el("button",(ds===fmt(now)?"today":""),String(d));
+    if(st)btn.dataset.s=st;
+    if(st==="paid")p++;
+    if(st==="expired")e++;
+    if(st==="skip")s++;
+    btn.onclick=()=>{
+      if(st){toast((mo+1)+" 月 "+d+" 日 · "+(STATUS_LBL[st]||"已记录"));}
+      else{toast("这天还没有记录");}
+    };
+    box.appendChild(btn);
+  }
+  $("#st1").textContent=p+e;
+  $("#st2").textContent=p;
+  $("#st3").textContent=e;
+}
+
+let toastT=null;
+const STATUS_LBL={paid:"吃到了（已付款）",expired:"过期未付，没扣钱",skip:"主动跳过"};
+function toast(msg){
+  const t=$("#toast"); t.textContent=msg; t.classList.add("on");
+  clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"),2200);
+}
+
+/* ===== 事件 ===== */
+$("#q").addEventListener("input",e=>{filter.q=e.target.value;renderQuick();renderGrid();});
+$("#store").addEventListener("input",e=>{S.store=e.target.value.trim()||"1450104";save();renderPicked();renderPhone();});
+$("#tm").addEventListener("input",e=>{S.time=e.target.value.trim()||"07:20";save();renderTimes();renderPhone();});
+$("#days").addEventListener("change",e=>{S.days=e.target.value;save();});
+
+$("#saveBtn").onclick=()=>{
+  save();
+  const m=mealObj();
+  document.getElementById("s3").scrollIntoView({behavior:"smooth",block:"start"});
+  toast("已记下："+m.n+" · "+S.time+" · 门店 "+S.store);
+};
+
+$("#b3ok").onclick=()=>{S.evening="ok";save();renderPhone();toast("好的，明天到点我直接建单");};
+$("#b3skip").onclick=()=>{S.evening="skip";S.order=null;logDay(tomorrow(),"skip");save();renderPhone();renderCal();toast("已跳过明天，不建单不提醒");};
+$("#b3chg").onclick=()=>{S.evening=null;save();document.getElementById("s1").scrollIntoView({behavior:"smooth",block:"start"});toast("改完记得点「设好了」");};
+$("#b4fire").onclick=fire;
+$("#copyBtn").onclick=()=>{
+  const txt='python scripts/search.py "板烧" --store-code 1450104 --min 10 --max 20\npython scripts/prefs.py set --store-code 1450104 --time 07:20 --meal 9900003457:1 --days weekdays\npython scripts/fire.py --dry-run';
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>toast("命令已复制")).catch(()=>toast("复制失败，请手动选择"));}
+  else toast("请长按手动复制");
+};
+
+/* 一键跑完 */
+let playing=false;
+$("#playBtn").onclick=async()=>{
+  if(playing)return; playing=true;
+  const btn=$("#playBtn"); btn.disabled=true;
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  S.evening=null;S.order=null;save();
+  try{
+    document.getElementById("s1").scrollIntoView({behavior:"smooth",block:"start"});
+    btn.textContent="① 替你选好早餐…"; await wait(1100);
+    renderGrid();renderPicked();
+    btn.textContent="② 设成闹钟…"; await wait(900);
+    document.getElementById("s3").scrollIntoView({behavior:"smooth",block:"start"});
+    btn.textContent="③ 晚上 20:00 先问一句…"; await wait(1200);
+    S.evening="ok";save();renderPhone();
+    toast("默认先订上——你什么都不用回"); await wait(1500);
+    document.getElementById("s4").scrollIntoView({behavior:"smooth",block:"start"});
+    btn.textContent="④ 07:20 到点建单…"; await wait(1000);
+    fire(); await wait(1400);
+    toast("单已备好，付不付你说了算");
+    btn.textContent="↻ 再跑一遍";
+  } finally { btn.disabled=false; playing=false; }
+};
+
+/* 初始化 */
+renderQuick();renderPr();renderGrid();renderPicked();renderTimes();renderPhone();renderCal();
+$("#days").value=S.days;
+$("#tm").value=S.time; $("#store").value=S.store;
+</script>
+</body>
+</html>
